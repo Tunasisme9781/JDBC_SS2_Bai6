@@ -1,13 +1,12 @@
-
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        String choice = "1";
+
 //
-        while (choice.equals("1")) {
+
             System.out.println("Nhập vào số N");
             int n;
 
@@ -22,27 +21,33 @@ public class Main {
             }
 
             int sochuso = 0;
-            int n1 = n, n2 = n;
-            do {
-                n = n / 10;
-                sochuso++;
-            } while (n >= 1);
-
+            int  j;
             int sodu;
-            int tong = 0;
-            for (int i = 1; i <= sochuso; i++) {
-                sodu = n1 % 10;
-                n1 = n1 / 10;
-                tong = tong + tinhluythua(sodu, sochuso);
+
+            for(j=0;j<=n;j++)
+            {int tong = 0;
+                sochuso = 0;
+                int j1=j;
+                int j2=j1;
+                do {
+                    j1 = j1 / 10;
+                    sochuso++;
+                } while (j1 >= 1);
+
+
+                for (int i = 1; i <= sochuso; i++) {
+                    sodu = j2 % 10;
+                    j2 = j2 / 10;
+                    tong = tong + tinhluythua(sodu, sochuso);
+                }
+//                System.out.printf("%d %d %d\n",sochuso,j,tong);
+                if (tong == j)
+                    System.out.printf("%d ", j);
+
             }
-            if (tong == n2)
-                System.out.printf("Số %d là số amstrong", n2);
-            else
-                System.out.printf("Số %d không là số amstrong\n", n2);
-            System.out.println("\nBạn có muốn nhập lại không? ");
-            System.out.println("nếu có ấn phím 1, nếu không ấn bất kì để thoát! ");
-            choice = sc.nextLine();
-        }
+
+
+
     }
 
     public static int tinhluythua(int so,int luythua)
